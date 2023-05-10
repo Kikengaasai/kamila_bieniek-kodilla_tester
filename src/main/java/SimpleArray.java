@@ -4,7 +4,7 @@ public class SimpleArray {
         String name = names[2];
         System.out.println(name);
         int numberOfElements = names.length;
-        System.out.println("Moja tablica ma " + numberOfElements + " elementów.");
+        System.out.println("Moja tablica ma " + numberOfElements + "   elementów.");
 
         }
 
