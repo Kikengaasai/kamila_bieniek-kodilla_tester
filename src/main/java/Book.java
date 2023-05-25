@@ -7,17 +7,17 @@ public class Book {
 
     private String title;
 
+    public Book(String author, String title){
+        this.author = author;
+        this.title = title;
+    }
+
     String getTitle() {
         return this.title;
     }
 
-    public static Book of() {
-        Book book = new Book();
-        String author = book.getAuthor();
-        String title = book.getTitle();
-
-        System.out.println("Author:"+ author);
-        System.out.println("Title: "+ title);
+    public static Book of(String author, String title) {
+        Book book = new Book(author, title);
         return book;
 
 
