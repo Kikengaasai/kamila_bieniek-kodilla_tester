@@ -24,5 +24,7 @@ public class Person {
         return age;
     }
 
+    public void showResponsibilities(){
 
+    }
 }
