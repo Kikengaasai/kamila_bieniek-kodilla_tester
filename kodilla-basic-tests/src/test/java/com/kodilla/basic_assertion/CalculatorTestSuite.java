@@ -26,9 +26,8 @@ public class CalculatorTestSuite {
         public void testSquarePowResult() {
             Calculator calculator = new Calculator();
             int a = 5;
-            double delta = calculator.squarePow(a) - 25;
             int squarePowResult = calculator.squarePow(a);
-            assertEquals(25, squarePowResult,delta);
+            assertEquals(25, squarePowResult,0.01);
 
 
         }
