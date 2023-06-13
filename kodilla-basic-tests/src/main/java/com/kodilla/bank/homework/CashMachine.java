@@ -4,7 +4,6 @@ public class CashMachine {
 
     private int[] amounts;
     private int size;
-    private int count;
 
     public CashMachine() {
         this.amounts = new int[0];
@@ -33,12 +32,6 @@ public class CashMachine {
         return balance;
     }
 
-    public int getCount() {
-        return count;
-    }
 
-    public void incrementTransactions() {
-        this.count++;
-    }
 }
 
