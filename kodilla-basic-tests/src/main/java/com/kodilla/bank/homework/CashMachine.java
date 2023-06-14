@@ -32,6 +32,40 @@ public class CashMachine {
         return balance;
     }
 
+    public int negativeTransactions(){
+        int count=0;
+        for(int i=0; i<amounts.length;i++){
+            if(amounts[i]<0){
+                count++;
+            }
+        }return count;
+    }
+
+    public int positiveTransactions(){
+        int count=0;
+        for(int i=0; i<amounts.length;i++){
+            if(amounts[i]<0){
+                count++;
+            }
+        }return count;
+    }
+
+    public int sumNegativeTransactions(){
+        int sum=0;
+        for(int i=0; i<amounts.length;i++){
+            if(amounts[i]<0){
+                sum+=amounts[i];
+            }
+        }return sum;
+    }
+    public int sumPositiveTransactions(){
+        int sum=0;
+        for(int i=0; i<amounts.length;i++){
+            if(amounts[i]>0){
+                sum+=amounts[i];
+            }
+        }return sum;
+    }
 
 
 }

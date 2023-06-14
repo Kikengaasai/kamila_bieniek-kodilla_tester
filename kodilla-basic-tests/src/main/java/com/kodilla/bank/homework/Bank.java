@@ -2,38 +2,64 @@ package com.kodilla.bank.homework;
 
 public class Bank {
 
-private CashMachine minusCash;
-private CashMachine plusCash;
+    private CashMachine[] cashMachine;
+    private int size;
 
-public Bank (){
-    this.minusCash = new CashMachine();
-    this.plusCash = new CashMachine();
-}
-
-public void addMinusCash(int cash){
-    if(cash<0){
-        this.minusCash.bank(cash);
+    public Bank() {
+        this.cashMachine = new CashMachine[0];
+        this.size = 0;
     }
-}
 
-public void addPlusCash(int cash){
-    if(cash>0){
-        this.plusCash.bank(cash);
+    public void addCashMachine(CashMachine cash) {
+        this.size++;
+        CashMachine[] newTab = new CashMachine[this.size];
+        System.arraycopy(cashMachine, 0, newTab, 0, cashMachine.length);
+        newTab[this.size - 1] = cash;
+        this.cashMachine = newTab;
     }
-}
 
-public double getMinusCashBalance(){
-    return this.minusCash.getAccountBalance();
-}
+    public int balance() {
+        int balance = 0;
+        for (int i = 0; i < cashMachine.length; i++) {
+            balance += cashMachine[i].getAccountBalance();
+        }
+        return balance;
+    }
 
-public double getPlusCashBalance(){
-    return this.plusCash.getAccountBalance();
-}
+    public int negativeCountOfTransactions() {
+        int count = 0;
+        for (int i = 0; i < cashMachine.length; i++) {
+            count += cashMachine[i].negativeTransactions();
+        }
+        return count;
+    }
 
-public double getAverage(){
-    double sum = this.minusCash.getAccountBalance() + this.plusCash.getAccountBalance();
-    return sum/2;
-}
+    public int positiveCountOfTransactions() {
+        int count = 0;
+        for (int i = 0; i < cashMachine.length; i++) {
+            count += cashMachine[i].positiveTransactions();
+        }
+        return count;
+
+    }
+        public double getAverageNegativeTransactions () {
+            int sum = 0;
+            for (int i = 0; i < cashMachine.length; i++) {
+                sum += cashMachine[i].sumNegativeTransactions();
+            }
+            double count = negativeCountOfTransactions();
+            return sum/count;
+        }
+
+    public double getAveragePositiveTransactions () {
+        int sum = 0;
+        for (int i = 0; i < cashMachine.length; i++) {
+            sum += cashMachine[i].sumPositiveTransactions();
+        }
+        double count = positiveCountOfTransactions();
+        return sum/count;
+    }
 
 
-}
+
+    }
