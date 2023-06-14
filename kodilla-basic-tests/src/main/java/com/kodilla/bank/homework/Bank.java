@@ -30,5 +30,10 @@ public double getPlusCashBalance(){
     return this.plusCash.getAccountBalance();
 }
 
+public double getAverage(){
+    double sum = this.minusCash.getAccountBalance() + this.plusCash.getAccountBalance();
+    return sum/2;
+}
+
 
 }
