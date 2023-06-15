@@ -11,8 +11,8 @@ public class CashMachineTestSuite {
     @Test
     public void shouldHaveZeroLength() {
         CashMachine cashMachine = new CashMachine();
-        int[] amounts = cashMachine.getAmounts();
-        assertEquals(0, amounts.length);
+        double amounts = cashMachine.getAccountBalance();
+        assertEquals(0, amounts);
     }
 
     @Test

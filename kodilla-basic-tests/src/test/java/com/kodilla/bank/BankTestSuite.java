@@ -1,18 +1,15 @@
 package com.kodilla.bank;
 
 import com.kodilla.bank.homework.Bank;
+import com.kodilla.bank.homework.CashMachine;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankTestSuite {
 
-    @Test
-    public void shouldHaveZeroLength(){
-        Bank bank = new Bank();
-        int[]cash = bank.addCashMachine();
-        assertEquals(0,cash.length);
-    }
+
+
     @Test
     public void shouldBeZeroIfBankDoesntHaveTransactions(){
         Bank bank = new Bank();
@@ -20,4 +17,9 @@ public class BankTestSuite {
 
     }
 
+    public void shouldCalculateBalance(){
+        Bank bank = new Bank();
+        bank.addCashMachine();
+
+    }
 }
