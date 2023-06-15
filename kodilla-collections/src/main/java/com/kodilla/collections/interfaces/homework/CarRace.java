@@ -6,17 +6,20 @@ public class CarRace {
         Car car = new Honda(90);
         doRace(car);
 
-        private static void doRace(Car car){
-            car.increaseSpeed();
-            car.increaseSpeed();
-            car.increaseSpeed();
-            car.decreaseSpeed();
-            car.decreaseSpeed();
-            System.out.println(car.getSpeed());
+        Car car2 = new Opel(100);
+        doRace(car2);
 
+        Car car3 = new Audi(150);
+        doRace(car3);
 
+    }
 
-
-        }
+    private static void doRace(Car car) {
+        car.increaseSpeed();
+        car.increaseSpeed();
+        car.increaseSpeed();
+        car.decreaseSpeed();
+        car.decreaseSpeed();
+        System.out.println(car.getSpeed());
     }
 }
