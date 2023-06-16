@@ -21,8 +21,8 @@ public class CashMachineTestSuite {
         cashMachine.bank(100);
         cashMachine.bank(200);
 
-        int[] amounts = cashMachine.getAmounts();
-        assertEquals(2, amounts.length);
+        double amounts = cashMachine.getAccountBalance();
+        assertEquals(300, amounts);
         assertEquals(100, amounts[0]);
         assertEquals(200, amounts[1]);
     }
