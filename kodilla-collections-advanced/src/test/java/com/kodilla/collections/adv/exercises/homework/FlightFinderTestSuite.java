@@ -44,8 +44,8 @@ class FlightFinderTestSuite {
         List<Flight> result = flightFinder.findFlightsFrom("Zabrze");
 
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("Zabrze", "Warszawa");
-        expectedList.add(new Flight("Zabrze", "Kraków");
+        expectedList.add(new Flight("Zabrze", "Warszawa"));
+        expectedList.add(new Flight("Zabrze", "Kraków"));
 
         assertEquals(expectedList, result);
 
@@ -74,4 +74,4 @@ class FlightFinderTestSuite {
         assertEquals(expectedList, result);
 
 
-    }
+    }}
