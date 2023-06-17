@@ -40,7 +40,7 @@ public class UserManager {
     private static List<String> filterOlderPeople(int age) {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getAge() == 30)
+                .filter(user -> user.getAge() == age)
                 .map(UserManager::getUserName)
                 .collect(Collectors.toList());
 
@@ -51,7 +51,7 @@ public class UserManager {
     private static List<String> filterPeopleWhoDontHavePosts(int numberOfPosts) {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getNumberOfPost() ==0)
+                .filter(user -> user.getNumberOfPost() ==numberOfPosts)
                 .map(UserManager::getUserName)
                 .collect(Collectors.toList());
 
