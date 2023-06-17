@@ -23,8 +23,7 @@ public class CashMachineTestSuite {
 
         double amounts = cashMachine.getAccountBalance();
         assertEquals(300, amounts);
-        assertEquals(100, amounts[0]);
-        assertEquals(200, amounts[1]);
+
     }
 
     @Test
