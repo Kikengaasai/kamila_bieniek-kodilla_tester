@@ -18,11 +18,11 @@ public class Application {
         students.add(new Student ("Joanna", new Teacher("Kunegunda")));
         students.add(new Student ("Grzegorz", null));
 
+
         for (Student student : students )
-            System.out.println("Uczeń: " + student.getName() + "   Nauczyciel: " + student.getTeacher());
+            System.out.println("Uczeń: " + student.getName());
 
 
-        Optional<Student> optionalStudent = Optional.ofNullable(new Student("Kasia",new Teacher("<undefined>")));
-        optionalStudent.ifPresent(u -> System.out.println("<undefined>"));
+
     }
 }

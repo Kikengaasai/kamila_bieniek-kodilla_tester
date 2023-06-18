@@ -1,5 +1,7 @@
 package com.kodilla.optional.homework;
 
+import java.util.Optional;
+
 public class Teacher {
 
     private String name;
@@ -7,6 +9,8 @@ public class Teacher {
     public Teacher(String name) {
         this.name = name;
     }
+
+
 
     @Override
     public String toString() {
