@@ -18,8 +18,9 @@ public class BankTestSuite {
     }
 
     public void shouldCalculateBalance(){
+
         Bank bank = new Bank();
-        bank.addCashMachine();
+        bank.addCashMachine(new CashMachine());
 
     }
 }
