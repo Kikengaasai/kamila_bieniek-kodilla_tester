@@ -6,6 +6,7 @@ public class CashMachine {
     private int size;
 
     public CashMachine() {
+
         this.amounts = new int[0];
     }
 
