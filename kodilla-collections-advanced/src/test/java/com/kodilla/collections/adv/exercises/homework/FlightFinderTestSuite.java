@@ -13,13 +13,9 @@ class FlightFinderTestSuite {
 
         //dajemy rzeczy potrzebne
         FlightFinder flightFinder = new FlightFinder();
-        flightFinder.addFlight("SAMOLOT 1", new Flight("Paryż", "Kraków") );
-        flightFinder.addFlight("SAMOLOT 2", new Flight("Londyn", "Dublin") );
-        flightFinder.addFlight("SAMOLOT 3", new Flight("Rzym", "Berlin") );
-        flightFinder.addFlight("SAMOLOT 4", new Flight("Zabrze", "Warszawa") );
 
-        //po dostarczeniu danych uruchamiamy metodę
-        List<Flight> result = flightFinder.addFlight("SAMOLOT5", new Flight("Zamość", "Bruksela"));
+        //po dostarzeniu danych uruchamiamy metodę
+        List<Flight> result = flightFinder.addFlight(new Flight("Zamość", "Bruksela"));
 
         List<Flight> expectedList = new ArrayList<>();
         expectedList.add(new Flight("Zamość", "Bruksela"));
@@ -34,18 +30,18 @@ class FlightFinderTestSuite {
         //dane
 
         FlightFinder flightFinder = new FlightFinder();
-        flightFinder.addFlight("SAMOLOT 1", new Flight("Zabrze", "Kraków") );
-        flightFinder.addFlight("SAMOLOT 2", new Flight("Londyn", "Dublin") );
-        flightFinder.addFlight("SAMOLOT 3", new Flight("Rzym", "Berlin") );
-        flightFinder.addFlight("SAMOLOT 4", new Flight("Zabrze", "Warszawa") );
+        flightFinder.addFlight(new Flight("Zabrze", "Kraków"));
+        flightFinder.addFlight(new Flight("Londyn", "Dublin"));
+        flightFinder.addFlight(new Flight("Rzym", "Berlin"));
+        flightFinder.addFlight(new Flight("Zabrze", "Warszawa"));
 
         // wywołujemy odpowiednią metode
 
         List<Flight> result = flightFinder.findFlightsFrom("Zabrze");
 
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("Zabrze", "Warszawa"));
         expectedList.add(new Flight("Zabrze", "Kraków"));
+        expectedList.add(new Flight("Zabrze", "Warszawa"));
 
         assertEquals(expectedList, result);
 
@@ -59,10 +55,10 @@ class FlightFinderTestSuite {
         //dane
 
         FlightFinder flightFinder = new FlightFinder();
-        flightFinder.addFlight("SAMOLOT 1", new Flight("Zabrze", "Kraków") );
-        flightFinder.addFlight("SAMOLOT 2", new Flight("Londyn", "Dublin") );
-        flightFinder.addFlight("SAMOLOT 3", new Flight("Rzym", "Berlin") );
-        flightFinder.addFlight("SAMOLOT 4", new Flight("Zabrze", "Warszawa") );
+        flightFinder.addFlight(new Flight("Zabrze", "Kraków"));
+        flightFinder.addFlight(new Flight("Londyn", "Dublin") );
+        flightFinder.addFlight(new Flight("Rzym", "Berlin") );
+        flightFinder.addFlight(new Flight("Zabrze", "Warszawa") );
 
         // wywołujemy odpowiednią metode
 

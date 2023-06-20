@@ -6,6 +6,7 @@ import java.util.*;
 
 public class FlightRepository {
 
+
     public static List<Flight> getFlightsTable() {
         List<Flight> flights = new ArrayList<>();
         flights.add(new Flight("Paris", "London"));

@@ -1,30 +1,33 @@
 package com.kodilla.collections.adv.exercises.homework;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FlightFinder {
 
-    Map<String, List<Flight>> airport = new HashMap<>();
+    List<Flight> airport = new ArrayList<>();
 
-    public List<Flight> addFlight (String plane, Flight flight){
+    public List<Flight> addFlight (Flight flight){
+        airport.add(flight);
 
-        List<Flight> flights = airport.getOrDefault(plane, new ArrayList<>());
-
-
-        flights.add(flight);
-
-        airport.put(plane, flights);
-
-        return flights;
+        return airport;
     }
 
     public List<Flight> findFlightsFrom(String departure){
-        return airport.getOrDefault(departure, Collections.emptyList());
-
+        List<Flight> departures =airport
+                .stream()
+                .filter(f->f.getDeparture().equals(departure))
+                .toList();
+        return departures;
     }
 
     public List<Flight> findFlightsTo(String arrival){
-        return airport.getOrDefault(arrival, Collections.emptyList());
+        List<Flight> arrivals =airport
+                .stream()
+                .filter(f->f.getArrival().equals(arrival))
+                .toList();
+        return arrivals;
+
 
     }
 
