@@ -45,7 +45,7 @@ public class CashMachine {
     public int positiveTransactions(){
         int count=0;
         for(int i=0; i<amounts.length;i++){
-            if(amounts[i]<0){
+            if(amounts[i]>0){
                 count++;
             }
         }return count;

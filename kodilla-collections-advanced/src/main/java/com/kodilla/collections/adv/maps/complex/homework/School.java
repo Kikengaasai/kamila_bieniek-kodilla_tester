@@ -10,6 +10,8 @@ public class School {
         this.numberOfStudents = numberOfStudents;
     }
 
+    public int countStudents(int )
+
 
 
     @Override

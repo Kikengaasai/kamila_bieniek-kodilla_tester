@@ -19,12 +19,21 @@ public class BankTestSuite {
     @Test
     public void shouldCalculateBalance() { //
 
+        Bank bank = new Bank();
+
         CashMachine cashMachine = new CashMachine();
         cashMachine.bank(100);
-        cashMachine.bank(200);
-        cashMachine.bank(-100);
 
-        double balance = cashMachine.getAccountBalance();
+        CashMachine cashMachine1 = new CashMachine();
+        cashMachine1.bank(200);
+        cashMachine1.bank(-100);
+
+
+        bank.addCashMachine(cashMachine);
+        bank.addCashMachine(cashMachine1);
+
+
+        double balance = bank.balance();
 
         assertEquals(200, balance);
 
@@ -33,27 +42,46 @@ public class BankTestSuite {
 
     @ Test
     public void shouldCountNegativeTransactions(){
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.bank(100);
-        cashMachine.bank(200);
-        cashMachine.bank(-100);
+        Bank bank = new Bank();
 
-        int count = cashMachine.negativeTransactions();
+        CashMachine cashMachine1 = new CashMachine();
+        cashMachine1.bank(100);
+        cashMachine1.bank(200);
+        cashMachine1.bank(-100);
 
-        assertEquals(1, count);
+        CashMachine cashMachine2 = new CashMachine();
+        cashMachine2.bank(-100);
+        cashMachine2.bank(-200);
+        cashMachine2.bank(-100);
+
+        bank.addCashMachine(cashMachine1);
+        bank.addCashMachine(cashMachine2);
+
+        int count = bank.negativeCountOfTransactions();
+
+        assertEquals(4, count);
 
     }
 
     @Test
     public void shouldCountPositiveTransactions(){
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.bank(100);
-        cashMachine.bank(200);
-        cashMachine.bank(-100);
+        Bank bank = new Bank();
 
-        int count = cashMachine.positiveTransactions();
+        CashMachine cashMachine1 = new CashMachine();
+        cashMachine1.bank(100);
+        cashMachine1.bank(200);
+        cashMachine1.bank(-100);
 
-        assertEquals(2,count);
+        CashMachine cashMachine2 = new CashMachine();
+        cashMachine2.bank(-100);
+        cashMachine2.bank(-200);
+        cashMachine2.bank(-100);
 
+        bank.addCashMachine(cashMachine1);
+        bank.addCashMachine(cashMachine2);
+
+        int count = bank.positiveCountOfTransactions();
+
+        assertEquals(2, count);
     }
 }

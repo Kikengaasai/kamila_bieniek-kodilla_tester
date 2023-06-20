@@ -6,39 +6,25 @@ import java.util.stream.Collectors;
 
 public class Warehouse {
 
+    private List<Order> orders = new ArrayList<>();
 
-    public List<String> getListOfOrders() {
-        List<String> orders = new ArrayList<>();
 
-        orders.add(1, "2");
-        orders.add(2, "3");
-        orders.add(3, "4");
-        orders.add(4, "5");
+    public void addOrder(Order order) {
+        orders.add(order);
 
-        return orders;
-    }
-
-    public List<Order> addOrder(Order order) {
-        List<Order> orders = new ArrayList<>();
-        orders.add(new Order("1"));
-        return orders;
     }
 
 
     public Order getOrder(String number) {
-        List<String> orders = getListOfOrders()
+        List<String> orders2 = orders
                 .stream()
-                .filter(order -> order.equals(number))
-                .collect(Collectors.toList());
+                .filter(order -> order.getNumber().equals(number))
+                .findAny()
+                .orElseThrow(() -> new OrderDoesntExistExeption());
 
 
         return (Order) orders;
 
     }
-
-  //  public boolean isOrderInWarehouse(String number) throws OrderDoesntExistExeption {
-    //    if (getOrder().containsKey(number))
-      //      return getOrder().get(number);
-        //throw new OrderDoesntExistExeption();
-    }
+}
 

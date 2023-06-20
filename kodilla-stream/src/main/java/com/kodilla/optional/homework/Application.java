@@ -20,9 +20,12 @@ public class Application {
 
 
         for (Student student : students )
-            System.out.println("Uczeń: " + student.getName());
+            System.out.println("Uczeń: " + getTeacherName(student));
 
+    }
 
+    public static String getTeacherName(Student student){
+      return  Optional.ofNullable(student.getTeacher()).orElse(new Teacher("<undefined>")).getName();
 
     }
 }

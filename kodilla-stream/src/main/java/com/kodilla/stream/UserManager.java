@@ -15,18 +15,8 @@ public class UserManager {
     }
 
 
-    //nie wiem czy w ogóle ta metoda jest potrzebna
-    public List<User> addUser (String person, User user){
 
-        List<User> users = people.getOrDefault(person, new ArrayList<>());
-        users.add(user);
-        people.put(person,users);
-
-        return users;
-    }
-
-
-    private static List<String> filterChemistGroupUsernames() {
+    public static List<String> filterChemistGroupUsernames() {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
                 .filter(user -> user.getGroup().equals("Chemists"))
@@ -40,7 +30,7 @@ public class UserManager {
     private static List<String> filterOlderPeople(int age) {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getAge() == age)
+                .filter(user -> user.getAge() > age)
                 .map(UserManager::getUserName)
                 .collect(Collectors.toList());
 
@@ -48,10 +38,10 @@ public class UserManager {
 
     }
 
-    private static List<String> filterPeopleWhoDontHavePosts(int numberOfPosts) {
+    private static List<String> filterPeopleWhoDontHavePosts() {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getNumberOfPost() ==numberOfPosts)
+                .filter(user -> user.getNumberOfPost()==0)
                 .map(UserManager::getUserName)
                 .collect(Collectors.toList());
 
