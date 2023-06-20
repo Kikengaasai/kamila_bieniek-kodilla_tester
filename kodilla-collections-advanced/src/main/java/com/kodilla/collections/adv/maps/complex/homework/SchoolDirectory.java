@@ -29,7 +29,7 @@ public class SchoolDirectory {
 
 
         for (Map.Entry<Principal, School> principalEntry : assignmentOfPrincipal.entrySet())
-            System.out.println("Principal:  Name: " + principalEntry.getKey().getPrincipalName() +"   "+"Last name: "+ principalEntry.getKey().getPrincipalLastName() +"   "+ "Name of school: "+ principalEntry.getKey().getSchoolName()+"    "+ principalEntry.getValue());
+            System.out.println("Principal:  Name: " + principalEntry.getKey().getPrincipalName() +"   "+"Last name: "+ principalEntry.getKey().getPrincipalLastName() +"   "+ "Name of school: "+ principalEntry.getKey().getSchoolName()+"    "+ principalEntry.getValue().countStudents());
 
 
 
