@@ -15,16 +15,16 @@ public class Warehouse {
     }
 
 
-    public Order getOrder(String number) {
-        List<String> orders2 = orders
-                .stream()
-                .filter(order -> order.getNumber().equals(number))
-                .findAny()
-                .orElseThrow(() -> new OrderDoesntExistExeption());
+   // public Order getOrder(String number) {
+     //   List<String> orders2 = orders
+       //         .stream()
+         //       .filter(order -> order.getNumber().equals(number))
+           //     .findAny()
+             //   .orElseThrow(() -> new OrderDoesntExistExeption());
 
 
-        return (Order) orders;
+      //  return (Order) orders;
 
     }
-}
+
 

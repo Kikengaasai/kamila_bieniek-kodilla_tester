@@ -1,5 +1,7 @@
 package com.kodilla.stream;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User {
@@ -30,6 +32,8 @@ public class User {
     public String getGroup() {
         return group;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

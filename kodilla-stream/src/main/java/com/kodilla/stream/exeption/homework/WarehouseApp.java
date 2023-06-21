@@ -10,7 +10,7 @@ public class WarehouseApp {
         warehouse.addOrder(new Order("103"));
         warehouse.addOrder(new Order("103"));
 
-        warehouse.getOrder("100");
+      //  warehouse.getOrder("100");
 
 
     }

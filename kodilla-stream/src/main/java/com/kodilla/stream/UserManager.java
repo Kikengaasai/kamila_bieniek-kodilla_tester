@@ -1,19 +1,15 @@
 package com.kodilla.stream;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class UserManager {
 
-    Map<String, List<User> > people = new HashMap<>();
+    List<User> people = new ArrayList<>();
     public static void main(String[] args) {
         List<String> chemistGroupUsernames = filterChemistGroupUsernames();
         System.out.println(chemistGroupUsernames);
     }
-
 
 
     public static List<String> filterChemistGroupUsernames() {
@@ -27,7 +23,7 @@ public class UserManager {
 
     }
 
-    private static List<String> filterOlderPeople(int age) {
+    public static List<String> filterOlderPeople(int age) {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
                 .filter(user -> user.getAge() > age)
@@ -38,7 +34,7 @@ public class UserManager {
 
     }
 
-    private static List<String> filterPeopleWhoDontHavePosts() {
+    public static List<String> filterPeopleWhoDontHavePosts() {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
                 .filter(user -> user.getNumberOfPost()==0)
@@ -51,7 +47,7 @@ public class UserManager {
 
 
 
-    private static void processUsersStream() {
+    public static void processUsersStream() {
         UsersRepository.getUsersList()
                 .stream()
                 .filter(user -> user.getGroup().equals("Chemists"))
@@ -63,5 +59,10 @@ public class UserManager {
         return user.getUsername();
     }
 
-    }
+
+
+}
+
+
+
 
