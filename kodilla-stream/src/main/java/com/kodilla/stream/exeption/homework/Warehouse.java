@@ -2,6 +2,7 @@ package com.kodilla.stream.exeption.homework;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Warehouse {
@@ -18,13 +19,11 @@ public class Warehouse {
    // public Order getOrder(String number) {
      //   List<String> orders2 = orders
        //         .stream()
-         //       .filter(order -> order.getNumber().equals(number))
+         //      .filter(order -> order.getNumber().equals(number))
            //     .findAny()
-             //   .orElseThrow(() -> new OrderDoesntExistExeption());
+             //   .orElseThrow(()-> throw new OrderDoesntExistExeption ("No i dupa"));
+        }
 
 
-      //  return (Order) orders;
-
-    }
 
 

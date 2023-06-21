@@ -24,7 +24,7 @@ public class ApplicationTest {
 
     public void shouldShowUndefinedIfTeacherIsNull(){
 
-        Student student = new Student("Andrzej", new Teacher(null));
+        Student student = new Student("Andrzej", null);
         String result = Application.getTeacherName(student);
 
         assertEquals("<undefined>", result);

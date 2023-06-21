@@ -19,9 +19,9 @@ public class UserManagerTestSuite {
 
         assertEquals(2, result.size());
 
-        List<User> expectedList = new ArrayList<>();
-        expectedList.add(new User("Walter White", 50, 7, "Chemists"));
-        expectedList.add(new User("Gale Boetticher", 44, 2, "Chemists"));
+        List<String> expectedList = UserManager.filterChemistGroupUsernames();
+
+
         assertEquals(result, expectedList);
 
     }
