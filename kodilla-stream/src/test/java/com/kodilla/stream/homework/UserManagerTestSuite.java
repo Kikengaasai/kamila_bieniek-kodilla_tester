@@ -13,35 +13,26 @@ import java.util.List;
 public class UserManagerTestSuite {
 
     @Test
-
     public void shouldShowChemistsUsernames() {
-        List<String> result = UserManager.filterChemistGroupUsernames();
-
+        List<String> result = UserManager.filterChemistGroupUsernames(UsersRepository.getUsersList());
         assertEquals(2, result.size());
-
-        List<String> expectedList = UserManager.filterChemistGroupUsernames();
-
+        List<String> expectedList = new ArrayList<>();
+        expectedList.add()
 
         assertEquals(result, expectedList);
-
     }
 
 
     @Test
 
-    public void shouldShowOlderPeopleThanAgeGiven() {
+    public void shouldShowOlderPeopleThanAgeGiven(int age) {
 
-        List<String> result = UserManager.filterOlderPeople(30);
+        List<String> result = UserManager.filterOlderPeople(age);
 
         assertEquals(5, result.size());
 
         List<User> expectedList = new ArrayList<>();
-        expectedList.add(new User("Walter White", 50, 7, "Chemists"));
-        expectedList.add(new User("Gale Boetticher", 44, 2, "Chemists"));
-        expectedList.add(new User("Tuco Salamanca", 34, 116, "Manager"));
-        expectedList.add(new User("Gus Firing", 49, 0, "Board"));
-        expectedList.add(new User("Gale Boetticher", 44, 2, "Chemists"));
-        expectedList.add(new User("Mike Ehrmantraut", 57, 0, "Security"));
+
 
         assertEquals(result, expectedList);
     }
