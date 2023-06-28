@@ -10,10 +10,15 @@ public class WarehouseApp {
         warehouse.addOrder(new Order("103"));
         warehouse.addOrder(new Order("103"));
 
-      //  warehouse.getOrder("100");
 
+        String orderNumber = "1";
+        try {
+            Order order = warehouse.getOrder(orderNumber);
+            System.out.println(order);
+        } catch (OrderDoesntExistException e) {
+            System.err.println("Order with number " + orderNumber + " does not exist!");
+        }
 
     }
-
 
 }

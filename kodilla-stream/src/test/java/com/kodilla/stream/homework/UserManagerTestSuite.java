@@ -16,25 +16,36 @@ public class UserManagerTestSuite {
     public void shouldShowChemistsUsernames() {
         List<String> result = UserManager.filterChemistGroupUsernames(UsersRepository.getUsersList());
         assertEquals(2, result.size());
-        List<String> expectedList = new ArrayList<>();
-        expectedList.add()
-
-        assertEquals(result, expectedList);
     }
 
+    @Test
+    public void shouldShowOlderPeopleThanAgeGiven() {
+
+        List<String> result = UserManager.filterOlderPeople(45);
+
+        assertEquals(3, result.size());
+
+        List<String> expectedList = new ArrayList<>();
+        expectedList.add("Walter White");
+        expectedList.add("Gus Firing");
+        expectedList.add("Mike Ehrmantraut");
+
+
+        assertEquals(expectedList, result);
+    }
 
     @Test
+    public void shouldShowPeopleWhoDontHavePosts() {
 
-    public void shouldShowOlderPeopleThanAgeGiven(int age) {
+        List<String> result = UserManager.filterPeopleWhoDontHavePosts(UsersRepository.getUsersList());
 
-        List<String> result = UserManager.filterOlderPeople(age);
+        assertEquals(2, result.size());
 
-        assertEquals(5, result.size());
+        List<String> expectedList = new ArrayList<>();
+        expectedList.add("Gus Firing");
+        expectedList.add("Mike Ehrmantraut");
 
-        List<User> expectedList = new ArrayList<>();
-
-
-        assertEquals(result, expectedList);
+        assertEquals(expectedList, result);
     }
 
 }
