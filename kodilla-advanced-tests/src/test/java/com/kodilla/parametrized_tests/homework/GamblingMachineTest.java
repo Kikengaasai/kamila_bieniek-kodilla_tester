@@ -11,16 +11,25 @@ import static org.junit.jupiter.api.Assertions.*;
 class GamblingMachineTest {
 
 
-    private GamblingMachine gamblingMachine = new GamblingMachine();
 
-   // @ParameterizedTest
+    @ParameterizedTest
+    @CsvFileSource(resources = "/userNumbers.csv", numLinesToSkip = 1)
 
-   // }
+    public void shouldReturnCorrectNumberOfWins(String userNumberChoice) throws InvalidNumbersException {
+        //Given
+        GamblingMachine gamblingMachine = new GamblingMachine();
+        Set<Integer> userNumbers = convert(userNumberChoice);
+        int actualWins =gamblingMachine.howManyWins(userNumbers);
+        Set<Integer> expectedComputer = gamblingMachine.generateComputerNumbers();
+        int expectedWins =gamblingMachine.howManyWins(expectedComputer);
 
-    private Set<Integer> convert(String numbers){
+        assertEquals(expectedWins,actualWins);
+    }
+
+    public Set<Integer> convert(String numbers) {
         String[] strings = numbers.split(",");
         Set<Integer> result = new HashSet<>();
-        for (String item : strings){
+        for (String item : strings) {
             result.add(Integer.parseInt(item));
         }
         return result;
