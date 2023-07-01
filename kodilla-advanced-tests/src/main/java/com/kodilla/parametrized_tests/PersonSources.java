@@ -11,6 +11,6 @@ public class PersonSources {
                 new Object[]{1.8,59, "Underweight"},
                 new Object[]{1.8,65, "Normal (healthy weight)"},
                 new Object[]{1.8,90,"Overweight"},
-                new Object[]{1.8,110,"Obese Class I"}
+                new Object[]{1.8,110,"Obese Class I (Moderately obese)"}
         );
 }}
