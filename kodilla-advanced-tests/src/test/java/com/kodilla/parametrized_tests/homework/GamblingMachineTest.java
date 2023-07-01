@@ -41,13 +41,9 @@ class GamblingMachineTest {
         GamblingMachine gamblingMachine = new GamblingMachine();
         Set<Integer> userNumbers = convert(userNumberChoice);
 
-        for(Integer number:userNumbers)
-            if(number<1 || number > 49){
-            assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
-                System.err.println(number + " Wrong number, you should choice between 1-49");
-        }else {
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
+        System.err.println(" Wrong number, you should choice between 1-49");
 
-        }
 
     }
 
@@ -58,13 +54,7 @@ class GamblingMachineTest {
         GamblingMachine gamblingMachine = new GamblingMachine();
         Set<Integer> userNumbers = convert(userNumberChoice);
 
-        for(Integer number:userNumbers)
-            if(userNumbers.size()!=6){
-                assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
-
-            }else {
-                assertDoesNotThrow(() -> gamblingMachine.howManyWins(userNumbers));
-            }
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
         System.err.println("Not enough numbers dude");
     }
 
@@ -75,13 +65,7 @@ class GamblingMachineTest {
         //Given
         GamblingMachine gamblingMachine = new GamblingMachine();
         Set<Integer> userNumbers = convert(userNumberChoice);
-
-        for(Integer number:userNumbers)
-            if(number.equals(number)){
-                assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
-            }else {
-                assertDoesNotThrow(() -> gamblingMachine.howManyWins(userNumbers));
-            }
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
         System.err.println(" You can't choose the same number twice");
     }
 
