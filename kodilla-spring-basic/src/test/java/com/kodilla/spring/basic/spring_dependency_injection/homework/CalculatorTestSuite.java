@@ -13,7 +13,7 @@ public class CalculatorTestSuite {
     @Test
     void testAdd() {
         calculator.add(6.5, 4.5);
-        assertEquals(6.0, calculator.getResult(), 0.0001);
+        assertEquals(11.0, calculator.getResult(), 0.0001);
     }
 
     @Test

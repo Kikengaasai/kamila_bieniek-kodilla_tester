@@ -11,31 +11,36 @@ public class Calculator {
     public Calculator(Display display) {
         this.display = display;
     }
-    public void add(double a, double b) {
+
+    public double add(double a, double b) {
         double result = a + b;
         display.display(result);
+        return result;
     }
 
-    public void subtract(double a, double b) {
+    public double subtract(double a, double b) {
         double result = a - b;
         display.display(result);
+        return result;
     }
 
-    public void multiply(double a, double b) {
+    public double multiply(double a, double b) {
         double result = a * b;
         display.display(result);
+        return result;
     }
 
-    public void divide(double a, double b) {
+    public double divide(double a, double b) {
+        double result = a / b;
         if (b == 0) {
             display.display(Double.NaN);
         } else {
-            double result = a / b;
             display.display(result);
         }
+
+return result;
     }
     public double getResult() {
         return display.getDisplayedValue();
     }
-
 }
