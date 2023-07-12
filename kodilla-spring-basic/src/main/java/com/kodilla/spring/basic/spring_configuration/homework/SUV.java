@@ -12,4 +12,14 @@ public class SUV implements Car {
     public String getCarType() {
         return "SUV";
     }
+
+    @Override
+    public int getMonth() {
+        return 0;
+    }
+
+    @Override
+    public void setHour(int i) {
+
+    }
 }

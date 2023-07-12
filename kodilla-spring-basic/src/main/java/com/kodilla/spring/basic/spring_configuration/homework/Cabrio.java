@@ -14,4 +14,14 @@ public class Cabrio implements Car{
 
         return "Cabrio";
     }
+
+    @Override
+    public int getMonth() {
+        return 0;
+    }
+
+    @Override
+    public void setHour(int i) {
+
+    }
 }

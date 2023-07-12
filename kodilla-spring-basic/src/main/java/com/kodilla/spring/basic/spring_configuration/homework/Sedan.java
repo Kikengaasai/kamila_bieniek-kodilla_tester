@@ -13,4 +13,14 @@ public class Sedan implements Car{
     public String getCarType() {
         return "Sedan";
     }
+
+    @Override
+    public int getMonth() {
+        return 0;
+    }
+
+    @Override
+    public void setHour(int i) {
+
+    }
 }
