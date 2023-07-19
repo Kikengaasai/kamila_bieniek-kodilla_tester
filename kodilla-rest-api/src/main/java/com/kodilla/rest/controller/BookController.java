@@ -26,9 +26,8 @@ class BookController {
         bookService.addBook(bookDto);
     }
 
-    @DeleteMapping("/{title}/{author}")
-    public void deleteBook(@PathVariable String title, @PathVariable String author) {
-        BookDto bookDto = new BookDto(title, author);
+    @DeleteMapping("/books")
+    public void deleteBook(@RequestBody BookDto bookDto) {
         bookService.getBooks().remove(bookDto);
     }
 }
