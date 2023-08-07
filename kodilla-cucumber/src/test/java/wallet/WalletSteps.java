@@ -3,16 +3,18 @@ package wallet;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
 
 public class WalletSteps {
-    private final Wallet wallet = new Wallet();
-    private final CashSlot cashSlot = new CashSlot();
+    private  Wallet wallet = new Wallet();
+    private  CashSlot cashSlot = new CashSlot();
+    private  Cashier cashier = new Cashier(cashSlot);
 
     @Given("I have deposited $200 in my wallet")
     public void i_have_deposited_$200_in_my_wallet() {
         wallet.deposit(200);
-        Assert.assertEquals("Incorrect wallet balance", 200, wallet.getBalance());
+        Assertions.assertEquals(200, wallet.getBalance(),"Incorrect wallet balance");
     }
     @When("I request $30")
     public void i_request_$30() {
@@ -21,20 +23,29 @@ public class WalletSteps {
     }
     @Then("$30 should be dispensed")
     public void $30_should_be_dispensed() {
-        Assert.assertEquals(30, cashSlot.getContents());
+        Assertions.assertEquals(30, cashSlot.getContents());
     }
 
+    @Then("the balance of my wallet should be $170")
+    public void the_balance_of_my_wallet_should_be_$170() {
+        Assertions.assertEquals(170,  wallet.getBalance(),"Incorrect wallet balance");
+    }
+
+
+
+
+    
     @When("I request $201")
     public void i_request_$201() {
         Cashier cashier = new Cashier(cashSlot);
         cashier.withdraw(wallet, 201);
     }
-
     @Then("I should see an error message saying 'Insufficient funds'")
     public void i_should_see_an_error_message_saying_insufficient_funds() {
         cashSlot.setErrorMessage("Insufficient funds");
-        Assert.assertEquals("Insufficient funds", cashSlot.getErrorMessage());
+        Assertions.assertEquals("Insufficient funds", cashSlot.getErrorMessage());
     }
+
 
     @When("I request $0")
     public void i_request_$0() {
@@ -42,11 +53,13 @@ public class WalletSteps {
         cashier.withdraw(wallet, 0);
     }
 
+
     @Then("I should see an error message saying 'Invalid amount'")
     public void i_should_see_an_error_message_saying_invalid_amount() {
         cashSlot.setErrorMessage("Invalid amount");
-        Assert.assertEquals("Invalid amount", cashSlot.getErrorMessage());
+        Assertions.assertEquals("Invalid amount", cashSlot.getErrorMessage());
     }
+
 
     @Given("I have deposited a negative amount in my wallet")
     public void i_have_deposited_a_negative_amount_in_my_wallet() {
@@ -54,7 +67,31 @@ public class WalletSteps {
     }
     @Then("My wallet balance should remain unchanged")
     public void my_wallet_balance_should_remain_unchanged() {
-        Assert.assertEquals(200, wallet.getBalance());
+        Assertions.assertEquals(200, wallet.getBalance());
+    }
+
+
+
+
+    @Given("I have deposited $100 in my wallet")
+    public void i_have_deposited_$100_in_my_wallet() {
+        wallet.deposit(100);
+        Assertions.assertEquals(100, wallet.getBalance());
+    }
+
+    @When("I withdraw $200")
+    public void i_withdraw_$200() {
+        cashier.withdraw(wallet, 200);
+    }
+
+    @Then("nothing should be dispensed")
+    public void nothing_should_be_dispensed() {
+        Assertions.assertEquals(0, cashSlot.getContents());
+    }
+
+    @Then("I should be told that I don't have enough money in my wallet")
+    public void i_should_be_told_that_i_dont_have_enough_money_in_my_wallet() {
+        Assertions.assertEquals("Insufficient funds", cashSlot.getErrorMessage());
     }
 
 }

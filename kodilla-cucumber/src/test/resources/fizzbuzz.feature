@@ -9,4 +9,4 @@ Feature:  Is it Fuzz, Buzz or FuzzBuzz?
       | 3      | "Fizz"     |
       | 5      | "Buzz"     |
       | 15     | "FizzBuzz" |
-      | 2      | "Nope"     |
+      | 2      | "None"     |

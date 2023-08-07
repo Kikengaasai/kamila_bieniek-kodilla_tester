@@ -7,21 +7,20 @@ import io.cucumber.java.en.When;
 import java.time.MonthDay;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seasonchecker.SeasonChecker.checkIfSummer;
+
 
 public class FuzzBuzzSteps {
 
     private int number;
     private String result;
 
-    @Given("I have {int}>")
+    @Given("I have {int}")
     public void  i_have_number (int number) {
         this.number = number;
-
     }
     @When("I call the fizzbuzz function")
     public void i_call_the_fizzbuzz_function() {
-        fizzBuzz(number);
+        this.result = FuzzBuzzSteps.fizzBuzz(number);
     }
 
     @Then("I should get {string}")
