@@ -1,6 +1,9 @@
+
 plugins {
     id 'java'
     id 'jacoco'
+    id 'checkstyle'
+    id "com.github.spotbugs" version "4.7.2"
 }
 
 group 'com.kodilla'
@@ -8,6 +11,9 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
 }
 
 dependencies {
@@ -17,4 +23,59 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            element = 'METHOD'
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 1.0
+            }
+            includes = [
+                    'com.kodilla.jacoco.*'
+            ]
+        }
+    }
+}
+
+checkstyle {
+    toolVersion "8.30"
+    configFile = file("checkstyle.xml")
+}
+
+spotbugs {
+    ignoreFailures = true
+}
+
+spotbugsMain {
+    reports {
+        html {
+            required = true
+        }
+    }
+}
+
+spotbugsTest {
+    reports {
+        html {
+            required = true
+        }
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            enabled = true
+            element = 'PACKAGE'
+            includes = ['com.kodilla.jacoco']
+            limit {
+                counter = 'BRANCH'
+                value = 1.0
+
+            }
+        }
+    }
 }
