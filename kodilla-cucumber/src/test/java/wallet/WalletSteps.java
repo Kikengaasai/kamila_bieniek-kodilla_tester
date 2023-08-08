@@ -16,6 +16,9 @@ public class WalletSteps {
         wallet.deposit(200);
         Assertions.assertEquals(200, wallet.getBalance(),"Incorrect wallet balance");
     }
+
+
+
     @When("I request $30")
     public void i_request_$30() {
         Cashier cashier = new Cashier(cashSlot);
@@ -61,6 +64,8 @@ public class WalletSteps {
     }
 
 
+
+
     @Given("I have deposited a negative amount in my wallet")
     public void i_have_deposited_a_negative_amount_in_my_wallet() {
         wallet.deposit(-100);
@@ -91,6 +96,28 @@ public class WalletSteps {
 
     @Then("I should be told that I don't have enough money in my wallet")
     public void i_should_be_told_that_i_dont_have_enough_money_in_my_wallet() {
+        Assertions.assertEquals("Insufficient funds", cashSlot.getErrorMessage());
+    }
+
+    @Given("I have deposited $10 in my wallet")
+    public void i_have_deposited_$10_in_my_wallet() {
+        wallet.deposit(10);
+        Assertions.assertEquals(10, wallet.getBalance(), "Incorrect wallet balance");
+    }
+
+    @When("I request $1000")
+    public void i_request_$1000() {
+        Cashier cashier = new Cashier(cashSlot);
+        cashier.withdraw(wallet, 1000);
+    }
+
+    @Then("nothing should be dispensed")
+    public void nothing_should_be_dispensed2() {
+        Assertions.assertEquals(0, cashSlot.getContents());
+    }
+
+    @Then("I should be told that I don't have enough money in my wallet")
+    public void i_should_be_told_that_i_dont_have_enough_money_in_my_wallet2() {
         Assertions.assertEquals("Insufficient funds", cashSlot.getErrorMessage());
     }
 
