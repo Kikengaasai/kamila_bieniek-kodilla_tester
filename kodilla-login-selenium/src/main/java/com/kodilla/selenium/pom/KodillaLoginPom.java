@@ -11,10 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 public class KodillaLoginPom {
 
     @FindBy(css = "input[type='email']")
-    WebElement emailField;
+    static WebElement emailField;
 
     @FindBy(css = "input[type='password']")
-    WebElement passwordField;
+    static WebElement passwordField;
 
     @FindBy(xpath = "//button[contains(text(), 'Log in')]")
     WebElement loginButton;
@@ -29,9 +29,9 @@ public class KodillaLoginPom {
         driver.navigate().to("https://kodilla.com/pl/test/login");
     }
 
-       public void login() {
-           emailField.sendKeys("kamila.bieniek@gmail.com");
-           passwordField.sendKeys("1234");
+       public void login(String email, String password) {
+           emailField.sendKeys(email);
+           passwordField.sendKeys(password);
            loginButton.click();
        }
 
