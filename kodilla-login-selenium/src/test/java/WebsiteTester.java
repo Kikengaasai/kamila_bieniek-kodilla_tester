@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WebsiteTester {
     public static void main(String[] args) {
@@ -9,7 +10,11 @@ public class WebsiteTester {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kamil\\Selenium-drivers\\Chrome\\chromedriver.exe");
 
         // Inicjalizacja przeglądarki
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+        WebDriver driver = new ChromeDriver(options);
+
 
         // Przejście do strony
         driver.navigate().to("https://kodilla.com/pl/test/store");
