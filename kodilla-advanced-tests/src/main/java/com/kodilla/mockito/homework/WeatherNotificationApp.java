@@ -64,7 +64,7 @@ public class WeatherNotificationApp implements WeatherNotificationService{
         subscribersOfTheLocation.remove(location);
     }
 
-    private void sendNotification(String email, String message) {//Możliwość wysyłki powiadomienia do wszystkich.
+    public void sendNotification(String email, String message) {//Możliwość wysyłki powiadomienia do wszystkich.
 
     }
 

@@ -13,7 +13,7 @@ public class ShapeUtils {
         System.out.println("Shape perimeter: " + shape.getPerimeter());
     }
 
-    private static String getShapeName(Shape shape) {
+    public static String getShapeName(Shape shape) {
         if (shape instanceof Circle)
             return "Circle";
         else if (shape instanceof Triangle)

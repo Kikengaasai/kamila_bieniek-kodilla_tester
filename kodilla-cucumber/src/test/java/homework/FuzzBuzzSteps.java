@@ -14,18 +14,18 @@ public class FuzzBuzzSteps {
     private int number;
     private String result;
 
-    @Given("I have {int}")
+    @Given("I have number {int}")
     public void  i_have_number (int number) {
         this.number = number;
     }
-    @When("I call the fizzbuzz function")
-    public void i_call_the_fizzbuzz_function() {
-        this.result = FuzzBuzzSteps.fizzBuzz(number);
+    @When("I call the fizzBuzz\\() function")
+    public void i_call_the_fizzBuzz_function() {
+        this.result = fizzBuzz(this.number);
     }
 
     @Then("I should get {string}")
-    public void i_should_get(String result) {
-        assertEquals(result, this.result);
+    public void i_should_get(String expectedResult) {
+        assertEquals(expectedResult, this.result);
     }
 
     public static String fizzBuzz(int number) {

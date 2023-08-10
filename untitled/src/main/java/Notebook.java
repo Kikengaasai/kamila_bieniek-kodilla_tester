@@ -26,16 +26,15 @@ public class Notebook {
         }else {
             System.out.println("This device is heavy.");
         }
-
     }
 
     public void checkYearAndPrice(){
-        if(this.year <2000 && this.price > 1000){
+        if(this.year < 2000 && this.price > 1000){
             System.out.println("Stary ale jary");
-        }else if ( this.year >= 2000 && this.price <2500){
-            System.out.println("Kupuj, ani się nie zastanawiaj");
-        }    else {
-            System.out.println("Zastanów się nad wyborem");
+        } else if (this.year >= 2000 && this.price < 2500){
+            System.out.println("Kupuj, ani sie nie zastanawiaj");
+        } else {
+            System.out.println("Zastanow sie nad wyborem");
         }
     }
 }

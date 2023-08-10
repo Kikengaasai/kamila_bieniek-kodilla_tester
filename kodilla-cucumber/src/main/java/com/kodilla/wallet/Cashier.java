@@ -1,4 +1,4 @@
-package wallet;
+package com.kodilla.wallet;
 
 public class Cashier {
     private final CashSlot cashSlot;

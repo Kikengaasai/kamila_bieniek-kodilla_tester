@@ -18,7 +18,7 @@ public class Trapeze extends Shape{
 
     @Override
     public double getArea() {
-        return 0.5*a+b*h;
+        return 0.5*(a+b)*h;
     }
 
     @Override

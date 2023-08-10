@@ -1,6 +1,6 @@
 public class Grades {
     private int[] grades;
-    private int size;
+    public int size;
 
     public Grades() {
         this.grades = new int[10];

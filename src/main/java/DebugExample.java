@@ -13,13 +13,13 @@ public class DebugExample {
         }
     }
 
-    private static void sumAndDisplay(int firstNumber, int secondNumber) {
+    public static void sumAndDisplay(int firstNumber, int secondNumber) {
         int result = firstNumber + secondNumber;
 
         System.out.println(result);
     }
 
-    private static void subtractAndDisplay(int firstNumber, int secondNumber) {
+    public static void subtractAndDisplay(int firstNumber, int secondNumber) {
         int result = firstNumber - secondNumber;
 
         System.out.println(result);

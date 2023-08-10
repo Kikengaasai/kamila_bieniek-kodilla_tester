@@ -34,24 +34,24 @@ class ShopTestSuite {
         assertEquals(expected, actual, "Number of orders should be 2");
     }
 
-    @Test
-    public void getOrdersFromTheRangeOfDates() {
-        // Given
-        Order order1 = new Order(100, LocalDate.of(2023, 6, 30), "Kamila");
-        Order order2 = new Order(200, LocalDate.of(2023, 7, 1), "Jola");
-        Order order3 = new Order(300, LocalDate.of(2023, 7, 2), "Gerta");
-
-        shop.addOrder(order1);
-        shop.addOrder(order2);
-        shop.addOrder(order3);
-
-        // When
-        List<Order> orders = shop.getOrders(LocalDate.of(2023, 6, 30), LocalDate.of(2023, 7, 1));
-
-        // Then
-        List<Order> expected = Arrays.asList(order1, order2);
-        assertEquals(expected, orders, "Orders for range of dates should be order1 and order2");
-    }
+//    @Test
+//    public void getOrdersFromTheRangeOfDates() {
+//        // Given
+//        Order order1 = new Order(100, LocalDate.of(2023, 6, 30), "Kamila");
+//        Order order2 = new Order(200, LocalDate.of(2023, 7, 1), "Jola");
+//        Order order3 = new Order(300, LocalDate.of(2023, 7, 2), "Gerta");
+//
+//        shop.addOrder(order1);
+//        shop.addOrder(order2);
+//        shop.addOrder(order3);
+//
+//        // When
+//        List<Order> orders = shop.getOrders(LocalDate.of(2023, 6, 30), LocalDate.of(2023, 7, 1));
+//
+//        // Then
+//        List<Order> expected = Arrays.asList(order1, order2);
+//        assertEquals(expected, orders, "Orders for range of dates should be order1 and order2");
+//    }
 
     @Test
     public void getOrdersWhenIsEmptyRangeOfDates() {

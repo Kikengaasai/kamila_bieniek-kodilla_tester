@@ -18,7 +18,7 @@ public class Triangle implements Shape {
 
     @Override
     public double getArea() {
-        return width+height/2;
+        return (0.5*width)*hypotenuse;
     }
 
     @Override

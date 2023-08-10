@@ -13,7 +13,7 @@ public class CarUtils {
         System.out.println("Car speed: " + car.getSpeed());
 
     }
-    private static String getCarName(Car car) {
+    public static String getCarName(Car car) {
         if (car instanceof Honda)
             return "Honda";
         else if (car instanceof Opel)

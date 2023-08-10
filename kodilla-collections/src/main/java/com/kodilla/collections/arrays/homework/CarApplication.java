@@ -35,7 +35,7 @@ public class CarApplication {
         }
     }
 
-    private static int getRandomIncreaseSpeed(Random random) {
+    public static int getRandomIncreaseSpeed(Random random) {
         return random.nextInt() + 10;
     }
 }

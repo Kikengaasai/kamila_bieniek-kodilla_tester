@@ -11,5 +11,5 @@ public interface WeatherNotificationService {
     void removeLocation (String location);
 
 
-
+    void sendNotification(String eq, String eq1);
 }
