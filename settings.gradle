@@ -15,4 +15,5 @@ include 'kodilla-code-coverage'
 include 'kodilla-soap'
 include 'kodilla-selenium'
 include 'kodilla-login-selenium'
+include 'kodilla-testcontainers'
 
