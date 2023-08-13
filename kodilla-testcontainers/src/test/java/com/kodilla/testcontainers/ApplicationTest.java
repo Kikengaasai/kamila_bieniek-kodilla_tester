@@ -48,6 +48,8 @@ public class ApplicationTest {
     @Test
     public void customImageTest() throws InterruptedException, IOException {
         RemoteWebDriver driver = chrome.getWebDriver();
+
+
         driver.get("http://my-server/");
 
         File screenshot = driver.getScreenshotAs(OutputType.FILE);

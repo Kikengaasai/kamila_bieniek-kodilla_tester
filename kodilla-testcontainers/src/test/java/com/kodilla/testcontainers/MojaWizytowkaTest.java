@@ -12,6 +12,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 import org.testcontainers.shaded.org.apache.commons.io.FileUtils;
+import org.testcontainers.utility.DockerImageName;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,9 +29,9 @@ public class MojaWizytowkaTest {
     @Rule
     public GenericContainer webServer =
             new GenericContainer(
-                    new ImageFromDockerfile()
-                            .withDockerfile(Paths.get("D:/Kama/NOWY PROJEKT BOOTCAMP/DOCKER/Dockerfile"))
-            )
+                    DockerImageName.parse("kodilla-httpd:latest")
+                    .asCompatibleSubstituteFor("selenium/standalone-chrome"))
+
                     .withNetwork(network)
                     .withNetworkAliases("moja-wizytowka")
                     .withExposedPorts(80);
